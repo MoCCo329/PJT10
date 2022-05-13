@@ -8,17 +8,17 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: 'dh96s.netlify.app',
     name: 'home',
     component: HomeView
   },
   {
-    path: '/random',
+    path: 'dh96s.netlify.app/random',
     name: 'random',
     component: RandomView
   },
   {
-    path: '/watch-list',
+    path: 'dh96s.netlify.app/watch-list',
     name: 'watch-list',
     component: WatchListView
   }
