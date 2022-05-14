@@ -29,7 +29,4 @@ export default {
 </script>
 
 <style>
-/* .list-box {
-   width: 60% !important; 
-} */
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1 class="my-5">Home</h1>
+    <h1 class="mt-3 mb-5">Home</h1>
     <movie-card></movie-card>
   </div>
 </template>

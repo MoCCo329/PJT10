@@ -10,7 +10,7 @@
       
       <div class="my-3 d-flex justify-content-between px-2 width">
         <div>
-          <i class="fa-brands fa-youtube fa-xl text-danger me-1 pointer" @click="[playYoutube(),changeMovieName(watch)]" ></i>
+          <i class="fa-brands fa-youtube fa-xl text-danger me-1 pointer" @click="playYoutube(watch)"></i>
           <span> {{ watch }} </span>
         </div>
         <div>
@@ -23,20 +23,18 @@
 </template>
 
 <script>
-import {mapActions} from 'vuex'
+import { mapActions } from 'vuex'
 import axios from 'axios'
 
 const API_URL = 'https://www.googleapis.com/youtube/v3/search'
 // const API_KEY = 'AIzaSyAjIWby-7t46kFX4_r7h3_NXZriAozsj0c'
-const API_KEY = 'AIzaSyBUE0lDzWu_fkgsFVKBgqY-GjRrmN5ixwM'
+// const API_KEY = 'AIzaSyBUE0lDzWu_fkgsFVKBgqY-GjRrmN5ixwM'
+const API_KEY = 'AIzaSyAzeA1ezh2hKCQVRkPLx1GNEBmbblnJZFE'
 
 export default {
   computed: {
     watchList() {
       return this.$store.state.watchList
-    },
-    videoURI() {
-      return `https://www.youtube.com/embed/${this.$store.state.videoId}`
     },
     movieName() {
       return this.$store.state.movieName
@@ -44,18 +42,14 @@ export default {
   },
   data(){
     return {
-      // movieName: this.$store.state.movieName,
-      // videoId: '',
-      //movieURI: '',
-      // videoURI: `https://www.youtube.com/embed/${this.$store.state.videoId}`,
+      videoURI: ''
     }
   },
   methods: {
     ...mapActions([
       'deleteMovie',
-      'changeMovieName',
     ]),
-    playYoutube () {
+    playYoutube (watch) {
       axios({
         method: 'get',
         url: API_URL,
@@ -63,17 +57,14 @@ export default {
           part: 'snippet',
           type: 'video',
           key: API_KEY,
-          q: `영화 ${this.$store.state.movieName} 예고편`,
+          q: `영화 ${watch} 예고편`,
           maxResults: 1
         }
       })
       .then(res => {
-        console.log(res.data.items)
-        console.log(res.data.items[0].id.videoId)
         let videoId = res.data.items[0].id.videoId
-        this.$store.dispatch('changeVideoId', videoId)
-        // const videoId = res.data.items[0].id.videoId
-        // this.movieURI = `https://www.youtube.com/embed/${videoId}`
+        // this.$store.dispatch('changeVideoId', videoId)
+        this.videoURI = `https://www.youtube.com/embed/${videoId}`
       })
       .catch(err => console.log(err))
     }
