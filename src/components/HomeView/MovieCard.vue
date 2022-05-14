@@ -42,8 +42,6 @@ export default {
         }
       })
       .then(response => {
-        // console.log(response)
-        // state에 20개온거 저장하고
         const movies = response.data.results
         const movieList = movies.map(function (res) {
           const {id, title, overview} = res
@@ -54,7 +52,6 @@ export default {
             poster_path : "https://image.tmdb.org/t/p/w500" + res.poster_path
           }
         })
-        //console.log(movieList)
         this.$store.dispatch('createMovieList', movieList)
       })
     }

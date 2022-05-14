@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="area">
-      <iframe width="600" height="450" :src="videoURI" frameborder="0"></iframe>
+      <iframe v-if="videoURI" width="600" height="450" :src="videoURI" frameborder="0"></iframe>
     </div>
     <div
     v-for="watch in watchList"

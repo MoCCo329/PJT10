@@ -30,12 +30,6 @@ export default new Vuex.Store({
     CLEAR_ALL (state) {
       state.watchList.splice(0,state.watchList.length)
     },
-    CHANGE_MOVIE_NAME (state, watch) {
-      state.movieName = watch
-    },
-    CHANGE_VIDEO_ID (state, videoId) {
-      state.videoId = videoId
-    }
   },
   actions: {
     createMovieList (context, movieList) {
@@ -50,13 +44,6 @@ export default new Vuex.Store({
     clearAll (context) {
       context.commit('CLEAR_ALL')
     },
-    changeMovieName (context, watch) {
-      console.log(watch)
-      context.commit('CHANGE_MOVIE_NAME', watch)
-    },
-    changeVideoId (context, videoId) {
-      context.commit('CHANGE_VIDEO_ID', videoId)
-    }
   },
   modules: {
   }
