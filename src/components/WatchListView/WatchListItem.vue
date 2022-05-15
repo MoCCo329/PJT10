@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div id="area">
-      <iframe v-if="videoURI" width="600" height="450" :src="videoURI" frameborder="0"></iframe>
+    <div v-if="videoURI" id="area">
+      <iframe width="600" height="450" :src="videoURI" frameborder="0"></iframe>
     </div>
     <div
     v-for="watch in watchList"
@@ -27,8 +27,8 @@ import { mapActions } from 'vuex'
 import axios from 'axios'
 
 const API_URL = 'https://www.googleapis.com/youtube/v3/search'
-// const API_KEY = 'AIzaSyAjIWby-7t46kFX4_r7h3_NXZriAozsj0c'
-// const API_KEY = 'AIzaSyBUE0lDzWu_fkgsFVKBgqY-GjRrmN5ixwM'
+// const API_KEY = 'AIzaSyAjIWby-7t46kFX4_r7h3_NXZriAozsj0c' 만료
+// const API_KEY = 'AIzaSyBUE0lDzWu_fkgsFVKBgqY-GjRrmN5ixwM' 만료
 const API_KEY = 'AIzaSyAzeA1ezh2hKCQVRkPLx1GNEBmbblnJZFE'
 
 export default {
@@ -63,7 +63,6 @@ export default {
       })
       .then(res => {
         let videoId = res.data.items[0].id.videoId
-        // this.$store.dispatch('changeVideoId', videoId)
         this.videoURI = `https://www.youtube.com/embed/${videoId}`
       })
       .catch(err => console.log(err))

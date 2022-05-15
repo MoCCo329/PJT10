@@ -11,8 +11,6 @@ export default new Vuex.Store({
   state: {
     movies: [],
     watchList: [],
-    movieName: '',
-    videoId: '',
   },
   getters: {
   },

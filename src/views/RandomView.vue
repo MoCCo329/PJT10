@@ -30,7 +30,6 @@ export default {
   },
   methods: {
     getRandomMovie() {
-      //console.log(1)
       const API_URL = "https://api.themoviedb.org/3/movie/top_rated"
       const API_KEY = "1c495200bf8a0c1956a9c60b7877da9c"
       axios({
@@ -43,7 +42,7 @@ export default {
         }
       })
       .then(response => {
-        const randomNumber = _.sample(_.range(0,20))
+        const randomNumber = _.sample(_.range(0, 20))
         let {id, title, overview, poster_path} = response.data.results[randomNumber]
         poster_path = "https://image.tmdb.org/t/p/w500" + poster_path
         this.id = id

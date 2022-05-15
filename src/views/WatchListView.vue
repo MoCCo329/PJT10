@@ -12,7 +12,7 @@
 <script>
 import WatchListForm from '../components/WatchListView/WatchListForm.vue'
 import WatchListItem from '../components/WatchListView/WatchListItem.vue'
-import {mapActions} from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'WatchListView',
