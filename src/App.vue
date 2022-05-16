@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="">DH96s</a>
+      <a class="navbar-brand" href="#">DH96s</a>
       <ul class="nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
           <router-link class='nav-link text-success' to="/">Home</router-link>

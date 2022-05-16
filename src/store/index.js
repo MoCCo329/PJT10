@@ -26,7 +26,7 @@ export default new Vuex.Store({
       state.watchList.splice(index, 1)
     },
     CLEAR_ALL (state) {
-      state.watchList.splice(0,state.watchList.length)
+      state.watchList.splice(0, state.watchList.length)
     },
   },
   actions: {
