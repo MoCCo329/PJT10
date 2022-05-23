@@ -10,7 +10,7 @@ export default new Vuex.Store({
   ],
   state: {
     movies: [],
-    watchList: [],
+    watchList: ["해리포터"],
   },
   getters: {
   },
